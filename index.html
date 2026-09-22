@@ -331,16 +331,17 @@ Powered by KS TECH LLC &copy; 2026
 <i class="fa-regular fa-envelope text-cyan-400 text-sm"></i>
 <span class="truncate">kzstech000@gmail.com</span>
 </a>
-<a href="tel:+96897312049" class="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-400 active:scale-95 transition-all shadow-sm">
+<a id="portfolio-header-tel-link" href="tel:+96897312049" class="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-400 active:scale-95 transition-all shadow-sm">
 <i class="fa-solid fa-phone text-cyan-400 text-sm"></i>
-<span>+968 9731 2049</span>
+<span id="portfolio-header-tel-text">+968 9731 2049</span>
 </a>
 </div>
 </header>
 
 <main class="glass-card rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col gap-6 sm:gap-10 reveal active">
-<section class="relative flex flex-col gap-3 sm:gap-4 text-center md:text-left max-w-3xl p-4 sm:p-10 md:p-12 pb-8 sm:pb-12 overflow-hidden rounded-t-2xl sm:rounded-t-3xl">
-<div id="hero-banner" class="absolute inset-0 -z-10">
+<section id="hero-section" class="flex flex-col md:flex-row w-full overflow-hidden rounded-t-2xl sm:rounded-t-3xl">
+<!-- Image block: full width on top for mobile, right column on desktop -->
+<div id="hero-banner" class="relative w-full md:w-1/2 h-48 sm:h-64 md:h-auto order-1 md:order-2 overflow-hidden">
 <img src="hero-images/hero-final-1.jpg" class="hero-slide active" alt="">
 <img src="hero-images/hero-final-2.jpg" class="hero-slide" alt="">
 <img src="hero-images/hero-final-3.jpg" class="hero-slide" alt="">
@@ -351,19 +352,20 @@ Powered by KS TECH LLC &copy; 2026
 <img src="hero-images/hero-final-8.jpg" class="hero-slide" alt="">
 <img src="hero-images/hero-final-9.jpg" class="hero-slide" alt="">
 <img src="hero-images/hero-final-10.jpg" class="hero-slide" alt="">
-<div class="absolute inset-0 bg-slate-950/75"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
 </div>
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-400 text-[11px] sm:text-xs font-semibold self-center md:self-start shadow-inner">
+<!-- Text block: below image on mobile, left column on desktop -->
+<div class="flex flex-col gap-3 sm:gap-4 text-center md:text-left w-full md:w-1/2 p-4 sm:p-10 md:p-12 order-2 md:order-1 justify-center bg-slate-950/95 md:bg-transparent">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-400 text-[10px] sm:text-[11px] font-semibold self-center md:self-start shadow-inner">
 <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
 Oman Vision 2040 Aligned Partner
 </div>
-<h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+<h1 class="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white leading-tight">
 Empowering Enterprise with <span class="shimmer-text">Resilient IT Foundations</span>
 </h1>
-<p class="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed">
+<p class="text-slate-300 text-[11px] sm:text-xs md:text-sm leading-relaxed">
 KS TECH LLC is a premier Muscat-based technology infrastructure, enterprise hardware distribution, and digital transformation partner. We empower businesses, educational institutions, government vendors, and SMEs across the Sultanate with state-of-the-art hardware systems and scalable cloud-ready architectures.
 </p>
+</div>
 </section>
 
 <div class="border-t border-slate-800/80 pt-6 sm:pt-8 flex flex-col gap-5 sm:gap-6 px-4 sm:px-10 md:px-12 pb-4 sm:pb-10 md:pb-12">
@@ -520,7 +522,7 @@ KS TECH LLC is a premier Muscat-based technology infrastructure, enterprise hard
 <div class="flex flex-col gap-1">
 <span class="font-extrabold text-cyan-400 text-xs sm:text-sm md:text-base tracking-wide uppercase">Inquiry Workflow</span>
 <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-Clients seeking hardware procurement, infrastructure deployment, or technical services across Oman can reach out directly via email at <a href="mailto:kzstech000@gmail.com" class="text-cyan-400 underline hover:text-cyan-300 font-semibold transition-colors">kzstech000@gmail.com</a> or phone/WhatsApp at <a href="tel:+96897312049" class="text-cyan-400 underline hover:text-cyan-300 font-semibold transition-colors">+968 9731 2049</a>.
+Clients seeking hardware procurement, infrastructure deployment, or technical services across Oman can reach out directly via email at <a href="mailto:kzstech000@gmail.com" class="text-cyan-400 underline hover:text-cyan-300 font-semibold transition-colors">kzstech000@gmail.com</a> or phone/WhatsApp at <a id="portfolio-cta-tel-link" href="tel:+96897312049" class="text-cyan-400 underline hover:text-cyan-300 font-semibold transition-colors">+968 9731 2049</a>.
 </p>
 </div>
 </div>
@@ -571,8 +573,25 @@ function togglePortfolio(person) {
   activePerson = person;
   document.getElementById('vcard-page-' + person).classList.add('hidden');
   document.getElementById('portfolio-page').classList.remove('hidden');
+  updatePortfolioContact(person);
   window.scrollTo({ top: 0, behavior: 'smooth' });
   initObserver();
+}
+
+function updatePortfolioContact(person) {
+  const phone = person === 'suresh' ? '+96892041780' : '+96897312049';
+  const phoneDisplay = person === 'suresh' ? '+968 9204 1780' : '+968 9731 2049';
+
+  const headerLink = document.getElementById('portfolio-header-tel-link');
+  const headerText = document.getElementById('portfolio-header-tel-text');
+  if (headerLink) headerLink.href = 'tel:' + phone;
+  if (headerText) headerText.textContent = phoneDisplay;
+
+  const ctaLink = document.getElementById('portfolio-cta-tel-link');
+  if (ctaLink) {
+    ctaLink.href = 'tel:' + phone;
+    ctaLink.textContent = phoneDisplay;
+  }
 }
 
 function closePortfolio() {
