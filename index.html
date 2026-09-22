@@ -80,6 +80,14 @@ body {
   from { transform: scale(1); }
   to { transform: scale(1.12); }
 }
+#hero-section {
+  min-height: 260px;
+}
+@media (min-width: 640px) {
+  #hero-section {
+    min-height: 360px;
+  }
+}
 </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-cyan-500 selection:text-slate-950 relative overflow-x-hidden">
@@ -331,15 +339,15 @@ Powered by KS TECH LLC &copy; 2026
 <i class="fa-regular fa-envelope text-cyan-400 text-sm"></i>
 <span class="truncate">kzstech000@gmail.com</span>
 </a>
-<a href="tel:+96897312049" class="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-400 active:scale-95 transition-all shadow-sm">
+<a id="portfolio-header-tel-link" href="tel:+96897312049" class="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-400 active:scale-95 transition-all shadow-sm">
 <i class="fa-solid fa-phone text-cyan-400 text-sm"></i>
-<span>+968 9731 2049</span>
+<span id="portfolio-header-tel-text">+968 9731 2049</span>
 </a>
 </div>
 </header>
 
 <main class="glass-card rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col gap-6 sm:gap-10 reveal active">
-<section class="relative flex flex-col gap-3 sm:gap-4 text-center md:text-left w-full p-4 sm:p-10 md:p-12 pb-8 sm:pb-12 overflow-hidden rounded-t-2xl sm:rounded-t-3xl min-h-[280px] sm:min-h-[360px] justify-center">
+<section id="hero-section" class="relative flex flex-col gap-3 sm:gap-4 text-center md:text-left w-full p-4 sm:p-10 md:p-12 pb-8 sm:pb-12 overflow-hidden rounded-t-2xl sm:rounded-t-3xl justify-center">
 <div id="hero-banner" class="absolute inset-0 -z-10">
 <img src="hero-images/hero-final-1.jpg" class="hero-slide active" alt="">
 <img src="hero-images/hero-final-2.jpg" class="hero-slide" alt="">
@@ -520,7 +528,7 @@ KS TECH LLC is a premier Muscat-based technology infrastructure, enterprise hard
 <div class="flex flex-col gap-1">
 <span class="font-extrabold text-cyan-400 text-xs sm:text-sm md:text-base tracking-wide uppercase">Inquiry Workflow</span>
 <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-Clients seeking hardware procurement, infrastructure deployment, or technical services across Oman can reach out directly via email at <a href="mailto:kzstech000@gmail.com" class="text-cyan-400 underline hover:text-cyan-300 font-semibold transition-colors">kzstech000@gmail.com</a> or phone/WhatsApp at <a href="tel:+96897312049" class="text-cyan-400 underline hover:text-cyan-300 font-semibold transition-colors">+968 9731 2049</a>.
+Clients seeking hardware procurement, infrastructure deployment, or technical services across Oman can reach out directly via email at <a href="mailto:kzstech000@gmail.com" class="text-cyan-400 underline hover:text-cyan-300 font-semibold transition-colors">kzstech000@gmail.com</a> or phone/WhatsApp at <a id="portfolio-cta-tel-link" href="tel:+96897312049" class="text-cyan-400 underline hover:text-cyan-300 font-semibold transition-colors">+968 9731 2049</a>.
 </p>
 </div>
 </div>
@@ -571,8 +579,25 @@ function togglePortfolio(person) {
   activePerson = person;
   document.getElementById('vcard-page-' + person).classList.add('hidden');
   document.getElementById('portfolio-page').classList.remove('hidden');
+  updatePortfolioContact(person);
   window.scrollTo({ top: 0, behavior: 'smooth' });
   initObserver();
+}
+
+function updatePortfolioContact(person) {
+  const phone = person === 'suresh' ? '+96892041780' : '+96897312049';
+  const phoneDisplay = person === 'suresh' ? '+968 9204 1780' : '+968 9731 2049';
+
+  const headerLink = document.getElementById('portfolio-header-tel-link');
+  const headerText = document.getElementById('portfolio-header-tel-text');
+  if (headerLink) headerLink.href = 'tel:' + phone;
+  if (headerText) headerText.textContent = phoneDisplay;
+
+  const ctaLink = document.getElementById('portfolio-cta-tel-link');
+  if (ctaLink) {
+    ctaLink.href = 'tel:' + phone;
+    ctaLink.textContent = phoneDisplay;
+  }
 }
 
 function closePortfolio() {
