@@ -80,14 +80,6 @@ body {
   from { transform: scale(1); }
   to { transform: scale(1.12); }
 }
-#hero-section {
-  min-height: 260px;
-}
-@media (min-width: 640px) {
-  #hero-section {
-    min-height: 360px;
-  }
-}
 </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-cyan-500 selection:text-slate-950 relative overflow-x-hidden">
@@ -347,8 +339,9 @@ Powered by KS TECH LLC &copy; 2026
 </header>
 
 <main class="glass-card rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col gap-6 sm:gap-10 reveal active">
-<section id="hero-section" class="relative flex flex-col gap-3 sm:gap-4 text-center md:text-left w-full p-4 sm:p-10 md:p-12 pb-8 sm:pb-12 overflow-hidden rounded-t-2xl sm:rounded-t-3xl justify-center">
-<div id="hero-banner" class="absolute inset-0 -z-10">
+<section id="hero-section" class="flex flex-col md:flex-row w-full overflow-hidden rounded-t-2xl sm:rounded-t-3xl">
+<!-- Image block: full width on top for mobile, right column on desktop -->
+<div id="hero-banner" class="relative w-full md:w-1/2 h-48 sm:h-64 md:h-auto order-1 md:order-2 overflow-hidden">
 <img src="hero-images/hero-final-1.jpg" class="hero-slide active" alt="">
 <img src="hero-images/hero-final-2.jpg" class="hero-slide" alt="">
 <img src="hero-images/hero-final-3.jpg" class="hero-slide" alt="">
@@ -359,9 +352,9 @@ Powered by KS TECH LLC &copy; 2026
 <img src="hero-images/hero-final-8.jpg" class="hero-slide" alt="">
 <img src="hero-images/hero-final-9.jpg" class="hero-slide" alt="">
 <img src="hero-images/hero-final-10.jpg" class="hero-slide" alt="">
-<div class="absolute inset-0 bg-slate-950/35"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
 </div>
+<!-- Text block: below image on mobile, left column on desktop -->
+<div class="flex flex-col gap-3 sm:gap-4 text-center md:text-left w-full md:w-1/2 p-4 sm:p-10 md:p-12 order-2 md:order-1 justify-center bg-slate-950/95 md:bg-transparent">
 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-400 text-[10px] sm:text-[11px] font-semibold self-center md:self-start shadow-inner">
 <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
 Oman Vision 2040 Aligned Partner
@@ -369,9 +362,10 @@ Oman Vision 2040 Aligned Partner
 <h1 class="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white leading-tight">
 Empowering Enterprise with <span class="shimmer-text">Resilient IT Foundations</span>
 </h1>
-<p class="text-slate-200 text-[11px] sm:text-xs md:text-sm leading-relaxed max-w-2xl">
+<p class="text-slate-300 text-[11px] sm:text-xs md:text-sm leading-relaxed">
 KS TECH LLC is a premier Muscat-based technology infrastructure, enterprise hardware distribution, and digital transformation partner. We empower businesses, educational institutions, government vendors, and SMEs across the Sultanate with state-of-the-art hardware systems and scalable cloud-ready architectures.
 </p>
+</div>
 </section>
 
 <div class="border-t border-slate-800/80 pt-6 sm:pt-8 flex flex-col gap-5 sm:gap-6 px-4 sm:px-10 md:px-12 pb-4 sm:pb-10 md:pb-12">
