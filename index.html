@@ -56,6 +56,30 @@ body {
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #020617; }
 ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 2px; }
+
+/* Hero banner rotating background */
+#hero-banner {
+  overflow: hidden;
+}
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 1.2s ease-in-out;
+  will-change: opacity, transform;
+}
+.hero-slide.active {
+  opacity: 1;
+  animation: heroZoom 5s ease-in-out forwards;
+}
+@keyframes heroZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.12); }
+}
 </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-cyan-500 selection:text-slate-950 relative overflow-x-hidden">
@@ -314,8 +338,22 @@ Powered by KS TECH LLC &copy; 2026
 </div>
 </header>
 
-<main class="glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-10 md:p-12 flex flex-col gap-6 sm:gap-10 reveal active">
-<section class="flex flex-col gap-3 sm:gap-4 text-center md:text-left max-w-3xl">
+<main class="glass-card rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col gap-6 sm:gap-10 reveal active">
+<section class="relative flex flex-col gap-3 sm:gap-4 text-center md:text-left max-w-3xl p-4 sm:p-10 md:p-12 pb-8 sm:pb-12 overflow-hidden rounded-t-2xl sm:rounded-t-3xl">
+<div id="hero-banner" class="absolute inset-0 -z-10">
+<img src="hero-images/hero-final-1.jpg" class="hero-slide active" alt="">
+<img src="hero-images/hero-final-2.jpg" class="hero-slide" alt="">
+<img src="hero-images/hero-final-3.jpg" class="hero-slide" alt="">
+<img src="hero-images/hero-final-4.jpg" class="hero-slide" alt="">
+<img src="hero-images/hero-final-5.jpg" class="hero-slide" alt="">
+<img src="hero-images/hero-final-6.jpg" class="hero-slide" alt="">
+<img src="hero-images/hero-final-7.jpg" class="hero-slide" alt="">
+<img src="hero-images/hero-final-8.jpg" class="hero-slide" alt="">
+<img src="hero-images/hero-final-9.jpg" class="hero-slide" alt="">
+<img src="hero-images/hero-final-10.jpg" class="hero-slide" alt="">
+<div class="absolute inset-0 bg-slate-950/75"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+</div>
 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-400 text-[11px] sm:text-xs font-semibold self-center md:self-start shadow-inner">
 <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
 Oman Vision 2040 Aligned Partner
@@ -328,7 +366,7 @@ KS TECH LLC is a premier Muscat-based technology infrastructure, enterprise hard
 </p>
 </section>
 
-<div class="border-t border-slate-800/80 pt-6 sm:pt-8 flex flex-col gap-5 sm:gap-6">
+<div class="border-t border-slate-800/80 pt-6 sm:pt-8 flex flex-col gap-5 sm:gap-6 px-4 sm:px-10 md:px-12 pb-4 sm:pb-10 md:pb-12">
 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-center sm:text-left">
 <h2 class="text-xs font-bold tracking-widest text-cyan-400 uppercase flex items-center justify-center sm:justify-start gap-2">
 <i class="fa-solid fa-cubes"></i> Core Service & Product Offerings
@@ -598,6 +636,22 @@ function initObserver() {
     observer.observe(element);
   });
 }
+
+// Hero banner: rotate through images with crossfade + slow zoom
+(function heroRotator() {
+  const slides = document.querySelectorAll('#hero-banner .hero-slide');
+  if (!slides.length) return;
+  let current = 0;
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    // restart the zoom animation by forcing reflow
+    slides[current].style.animation = 'none';
+    void slides[current].offsetWidth;
+    slides[current].style.animation = '';
+    slides[current].classList.add('active');
+  }, 5000);
+})();
 </script>
 </body>
 </html>
