@@ -80,7 +80,14 @@ body {
   from { transform: scale(1); }
   to { transform: scale(1.12); }
 }
+.work-card { transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease; }
+.work-shot { transition: transform 1.2s ease; }
+@media (hover: hover) {
+  .work-card:hover { transform: translateY(-4px); border-color: rgba(56,189,248,.55); box-shadow: 0 18px 50px rgba(56,189,248,.18); }
+  .work-card:hover .work-shot { transform: scale(1.04); }
+}
 @media (prefers-reduced-motion: reduce) {
+  .work-card, .work-shot { transition: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .hero-slide.active { animation: none; }
 }
@@ -126,7 +133,7 @@ Founder & Managing Partner
 
 <div class="flex flex-col gap-3 text-center">
 <p class="text-lg sm:text-xl font-extrabold leading-snug text-white">
-Your <span class="shimmer-text">Outsourced IT Department</span> in Muscat
+<span class="shimmer-text">IT Support and Websites</span> for Businesses in Muscat
 </p>
 <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/70 border border-cyan-500/25 text-left">
 <div class="w-10 h-10 rounded-lg bg-cyan-500/15 border border-cyan-500/40 flex items-center justify-center text-cyan-400 shrink-0">
@@ -166,6 +173,16 @@ Your <span class="shimmer-text">Outsourced IT Department</span> in Muscat
 <span>Book a Free IT Health Check</span>
 </div>
 <i class="fa-brands fa-whatsapp text-cyan-300 text-base"></i>
+</a>
+
+<a href="#work" class="w-full py-3 px-4 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-cyan-500/50 text-slate-200 text-xs sm:text-sm font-semibold flex items-center justify-between group transition-all">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
+<i class="fa-solid fa-laptop-code"></i>
+</div>
+<span>Websites We've Built</span>
+</div>
+<i class="fa-solid fa-chevron-down text-slate-400 group-hover:text-cyan-400 transition-colors"></i>
 </a>
 
 <a href="#services" class="w-full py-3 px-4 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-cyan-500/50 text-slate-200 text-xs sm:text-sm font-semibold flex items-center justify-between group transition-all">
@@ -235,6 +252,221 @@ KS TECH LLC manages, supports and secures IT for schools, clinics and offices ac
 </section>
 
 <div class="border-t border-slate-800/80 pt-6 sm:pt-8 flex flex-col gap-5 sm:gap-6 px-4 sm:px-10 md:px-12 pb-4 sm:pb-10 md:pb-12">
+<div id="work" class="flex flex-col gap-5 sm:gap-6 scroll-mt-4">
+<div class="flex flex-col gap-2 text-center sm:text-left">
+<h2 class="text-xs font-bold tracking-widest text-cyan-400 uppercase flex items-center justify-center sm:justify-start gap-2">
+<i class="fa-solid fa-laptop-code"></i> Websites &amp; Web Apps We've Built
+</h2>
+<p class="text-lg sm:text-2xl font-extrabold text-white leading-snug">Real projects, live right now. Tap any one to try it.</p>
+</div>
+
+<div class="grid grid-cols-3 gap-2.5 sm:gap-4">
+<div class="rounded-xl bg-slate-900/70 border border-slate-800 p-3 sm:p-4 text-center">
+<div class="text-2xl sm:text-4xl font-extrabold text-white">6</div>
+<div class="text-[10px] sm:text-xs text-slate-400 leading-tight mt-1">live projects</div>
+</div>
+<div class="rounded-xl bg-slate-900/70 border border-slate-800 p-3 sm:p-4 text-center">
+<div class="text-2xl sm:text-4xl font-extrabold text-white">3</div>
+<div class="text-[10px] sm:text-xs text-slate-400 leading-tight mt-1">languages: English, Arabic, Urdu</div>
+</div>
+<div class="rounded-xl bg-slate-900/70 border border-slate-800 p-3 sm:p-4 text-center">
+<div class="text-2xl sm:text-4xl font-extrabold text-white">2</div>
+<div class="text-[10px] sm:text-xs text-slate-400 leading-tight mt-1">markets: Oman and Pakistan</div>
+</div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+<a href="https://the-snooker-cafe.vercel.app" target="_blank" rel="noopener" class="work-card glass-card rounded-2xl overflow-hidden flex flex-col group reveal focus-visible:outline-2 focus-visible:outline-cyan-400 md:col-span-2 md:flex-row">
+<div class="relative md:w-3/5 md:shrink-0 bg-gradient-to-br from-cyan-900/50 via-slate-900 to-blue-950 border-b md:border-b-0 border-slate-800">
+<div class="flex items-center gap-1.5 px-3 py-2 bg-slate-950/90 border-b border-slate-800">
+<span class="w-2 h-2 rounded-full bg-rose-400/80"></span><span class="w-2 h-2 rounded-full bg-amber-300/80"></span><span class="w-2 h-2 rounded-full bg-emerald-400/80"></span>
+<span class="ml-2 flex-1 truncate text-[10px] text-slate-400 bg-slate-900 rounded px-2 py-0.5">the-snooker-cafe.vercel.app</span>
+</div>
+<div class="relative aspect-[16/10] overflow-hidden">
+<i class="fa-solid fa-globe absolute inset-0 m-auto w-fit h-fit text-4xl text-cyan-500/20"></i>
+<img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fthe-snooker-cafe.vercel.app?w=900&h=560" alt="Screenshot of The Snooker Cafe" loading="lazy" class="work-shot relative w-full h-full object-cover object-top" onerror="this.style.display='none'">
+<span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/85 border border-slate-700 text-[10px] sm:text-[11px] font-semibold text-slate-100">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>Paying Client, Muscat
+</span>
+</div>
+</div>
+<div class="flex flex-col gap-2.5 p-4 sm:p-5 flex-1">
+<div>
+<h3 class="font-extrabold text-white text-base sm:text-lg group-hover:text-cyan-300 transition-colors">The Snooker Cafe</h3>
+<p class="text-[11px] sm:text-xs text-cyan-400 font-semibold">Booking system and staff dashboard</p>
+</div>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Players scan a QR code at the table to book. Staff approve each booking and run live timers, while a public page shows which tables and PS5s are free right now.</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">QR booking</span>
+<span class="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">Live dashboard</span>
+<span class="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">English, Arabic, Urdu</span>
+</div>
+<span class="mt-auto pt-1 inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-cyan-300">
+Open live site <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+</span>
+</div>
+</a>
+<a href="https://www.1bazarify.store" target="_blank" rel="noopener" class="work-card glass-card rounded-2xl overflow-hidden flex flex-col group reveal focus-visible:outline-2 focus-visible:outline-cyan-400">
+<div class="relative bg-gradient-to-br from-cyan-900/50 via-slate-900 to-blue-950 border-b md:border-b-0 border-slate-800">
+<div class="flex items-center gap-1.5 px-3 py-2 bg-slate-950/90 border-b border-slate-800">
+<span class="w-2 h-2 rounded-full bg-rose-400/80"></span><span class="w-2 h-2 rounded-full bg-amber-300/80"></span><span class="w-2 h-2 rounded-full bg-emerald-400/80"></span>
+<span class="ml-2 flex-1 truncate text-[10px] text-slate-400 bg-slate-900 rounded px-2 py-0.5">1bazarify.store</span>
+</div>
+<div class="relative aspect-[16/10] overflow-hidden">
+<i class="fa-solid fa-globe absolute inset-0 m-auto w-fit h-fit text-4xl text-cyan-500/20"></i>
+<img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.1bazarify.store?w=900&h=560" alt="Screenshot of Bazarify" loading="lazy" class="work-shot relative w-full h-full object-cover object-top" onerror="this.style.display='none'">
+<span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/85 border border-slate-700 text-[10px] sm:text-[11px] font-semibold text-slate-100">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>Live Store
+</span>
+</div>
+</div>
+<div class="flex flex-col gap-2.5 p-4 sm:p-5 flex-1">
+<div>
+<h3 class="font-extrabold text-white text-base sm:text-lg group-hover:text-cyan-300 transition-colors">Bazarify</h3>
+<p class="text-[11px] sm:text-xs text-cyan-400 font-semibold">E-commerce store, Pakistan</p>
+</div>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Full online store with cash on delivery, invoices, AI shopping assistant, AI search and separate vendor pages.</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">AI assistant</span>
+<span class="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">COD checkout</span>
+<span class="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">Admin panel</span>
+</div>
+<span class="mt-auto pt-1 inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-cyan-300">
+Open live site <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+</span>
+</div>
+</a>
+<a href="https://suuqify.vercel.app" target="_blank" rel="noopener" class="work-card glass-card rounded-2xl overflow-hidden flex flex-col group reveal focus-visible:outline-2 focus-visible:outline-cyan-400">
+<div class="relative bg-gradient-to-br from-cyan-900/50 via-slate-900 to-blue-950 border-b md:border-b-0 border-slate-800">
+<div class="flex items-center gap-1.5 px-3 py-2 bg-slate-950/90 border-b border-slate-800">
+<span class="w-2 h-2 rounded-full bg-rose-400/80"></span><span class="w-2 h-2 rounded-full bg-amber-300/80"></span><span class="w-2 h-2 rounded-full bg-emerald-400/80"></span>
+<span class="ml-2 flex-1 truncate text-[10px] text-slate-400 bg-slate-900 rounded px-2 py-0.5">suuqify.vercel.app</span>
+</div>
+<div class="relative aspect-[16/10] overflow-hidden">
+<i class="fa-solid fa-globe absolute inset-0 m-auto w-fit h-fit text-4xl text-cyan-500/20"></i>
+<img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fsuuqify.vercel.app?w=900&h=560" alt="Screenshot of Suuqify" loading="lazy" class="work-shot relative w-full h-full object-cover object-top" onerror="this.style.display='none'">
+<span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/85 border border-slate-700 text-[10px] sm:text-[11px] font-semibold text-slate-100">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>Live Store
+</span>
+</div>
+</div>
+<div class="flex flex-col gap-2.5 p-4 sm:p-5 flex-1">
+<div>
+<h3 class="font-extrabold text-white text-base sm:text-lg group-hover:text-cyan-300 transition-colors">Suuqify</h3>
+<p class="text-[11px] sm:text-xs text-cyan-400 font-semibold">E-commerce store, Oman</p>
+</div>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed">An online store built for Oman, with prices in OMR, Arabic language and Oman cities.</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">Arabic</span>
+<span class="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">OMR pricing</span>
+<span class="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">Mobile first</span>
+</div>
+<span class="mt-auto pt-1 inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-cyan-300">
+Open live site <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+</span>
+</div>
+</a>
+<a href="https://bright-spot.vercel.app" target="_blank" rel="noopener" class="work-card glass-card rounded-2xl overflow-hidden flex flex-col group reveal focus-visible:outline-2 focus-visible:outline-cyan-400">
+<div class="relative bg-gradient-to-br from-cyan-900/50 via-slate-900 to-blue-950 border-b md:border-b-0 border-slate-800">
+<div class="flex items-center gap-1.5 px-3 py-2 bg-slate-950/90 border-b border-slate-800">
+<span class="w-2 h-2 rounded-full bg-rose-400/80"></span><span class="w-2 h-2 rounded-full bg-amber-300/80"></span><span class="w-2 h-2 rounded-full bg-emerald-400/80"></span>
+<span class="ml-2 flex-1 truncate text-[10px] text-slate-400 bg-slate-900 rounded px-2 py-0.5">bright-spot.vercel.app</span>
+</div>
+<div class="relative aspect-[16/10] overflow-hidden">
+<i class="fa-solid fa-globe absolute inset-0 m-auto w-fit h-fit text-4xl text-cyan-500/20"></i>
+<img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fbright-spot.vercel.app?w=900&h=560" alt="Screenshot of Bright Spot" loading="lazy" class="work-shot relative w-full h-full object-cover object-top" onerror="this.style.display='none'">
+<span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/85 border border-slate-700 text-[10px] sm:text-[11px] font-semibold text-slate-100">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>Live Store
+</span>
+</div>
+</div>
+<div class="flex flex-col gap-2.5 p-4 sm:p-5 flex-1">
+<div>
+<h3 class="font-extrabold text-white text-base sm:text-lg group-hover:text-cyan-300 transition-colors">Bright Spot</h3>
+<p class="text-[11px] sm:text-xs text-cyan-400 font-semibold">E-commerce store with AI</p>
+</div>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Animated store with an AI chat assistant, live product search, Urdu and English, and its own admin dashboard.</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">AI chat</span>
+<span class="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">Live search</span>
+<span class="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">Admin dashboard</span>
+</div>
+<span class="mt-auto pt-1 inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-cyan-300">
+Open live site <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+</span>
+</div>
+</a>
+<a href="https://www.1bazarify.store/dua-fragrance" target="_blank" rel="noopener" class="work-card glass-card rounded-2xl overflow-hidden flex flex-col group reveal focus-visible:outline-2 focus-visible:outline-cyan-400">
+<div class="relative bg-gradient-to-br from-cyan-900/50 via-slate-900 to-blue-950 border-b md:border-b-0 border-slate-800">
+<div class="flex items-center gap-1.5 px-3 py-2 bg-slate-950/90 border-b border-slate-800">
+<span class="w-2 h-2 rounded-full bg-rose-400/80"></span><span class="w-2 h-2 rounded-full bg-amber-300/80"></span><span class="w-2 h-2 rounded-full bg-emerald-400/80"></span>
+<span class="ml-2 flex-1 truncate text-[10px] text-slate-400 bg-slate-900 rounded px-2 py-0.5">1bazarify.store/dua-fragrance</span>
+</div>
+<div class="relative aspect-[16/10] overflow-hidden">
+<i class="fa-solid fa-globe absolute inset-0 m-auto w-fit h-fit text-4xl text-cyan-500/20"></i>
+<img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.1bazarify.store%2Fdua-fragrance?w=900&h=560" alt="Screenshot of Dua Fragrance" loading="lazy" class="work-shot relative w-full h-full object-cover object-top" onerror="this.style.display='none'">
+<span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/85 border border-slate-700 text-[10px] sm:text-[11px] font-semibold text-slate-100">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>Live Page
+</span>
+</div>
+</div>
+<div class="flex flex-col gap-2.5 p-4 sm:p-5 flex-1">
+<div>
+<h3 class="font-extrabold text-white text-base sm:text-lg group-hover:text-cyan-300 transition-colors">Dua Fragrance</h3>
+<p class="text-[11px] sm:text-xs text-cyan-400 font-semibold">Brand page for a perfume maker</p>
+</div>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed">A dedicated brand page where orders go straight to the manufacturer on WhatsApp, with a printable invoice.</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">WhatsApp orders</span>
+<span class="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">Invoices</span>
+</div>
+<span class="mt-auto pt-1 inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-cyan-300">
+Open live site <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+</span>
+</div>
+</a>
+<a href="https://black-diamond-seven.vercel.app" target="_blank" rel="noopener" class="work-card glass-card rounded-2xl overflow-hidden flex flex-col group reveal focus-visible:outline-2 focus-visible:outline-cyan-400">
+<div class="relative bg-gradient-to-br from-cyan-900/50 via-slate-900 to-blue-950 border-b md:border-b-0 border-slate-800">
+<div class="flex items-center gap-1.5 px-3 py-2 bg-slate-950/90 border-b border-slate-800">
+<span class="w-2 h-2 rounded-full bg-rose-400/80"></span><span class="w-2 h-2 rounded-full bg-amber-300/80"></span><span class="w-2 h-2 rounded-full bg-emerald-400/80"></span>
+<span class="ml-2 flex-1 truncate text-[10px] text-slate-400 bg-slate-900 rounded px-2 py-0.5">black-diamond-seven.vercel.app</span>
+</div>
+<div class="relative aspect-[16/10] overflow-hidden">
+<i class="fa-solid fa-globe absolute inset-0 m-auto w-fit h-fit text-4xl text-cyan-500/20"></i>
+<img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fblack-diamond-seven.vercel.app?w=900&h=560" alt="Screenshot of Black Diamond" loading="lazy" class="work-shot relative w-full h-full object-cover object-top" onerror="this.style.display='none'">
+<span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/85 border border-slate-700 text-[10px] sm:text-[11px] font-semibold text-slate-100">
+<span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>Showcase
+</span>
+</div>
+</div>
+<div class="flex flex-col gap-2.5 p-4 sm:p-5 flex-1">
+<div>
+<h3 class="font-extrabold text-white text-base sm:text-lg group-hover:text-cyan-300 transition-colors">Black Diamond</h3>
+<p class="text-[11px] sm:text-xs text-cyan-400 font-semibold">Design showcase</p>
+</div>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed">A gallery of website designs for salons, bookshops, car showrooms, fashion labels and more.</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">Salons</span>
+<span class="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">Retail</span>
+<span class="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">Showrooms</span>
+</div>
+<span class="mt-auto pt-1 inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-cyan-300">
+Open live site <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+</span>
+</div>
+</a>
+</div>
+
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 sm:p-5 rounded-2xl bg-slate-900/70 border border-cyan-500/30 reveal">
+<p class="text-sm sm:text-base text-slate-200 text-center sm:text-left">
+<span class="font-bold text-white">Want one for your business?</span> Stores, booking systems, dashboards and company websites.
+</p>
+<a href="https://wa.me/96897312049?text=Hello%20KS%20TECH%2C%20I%20saw%20your%20work%20and%20I%20would%20like%20a%20website%20for%20my%20business." target="_blank" rel="noopener" class="w-full sm:w-auto shrink-0 px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-bold text-xs sm:text-sm shadow-lg shadow-cyan-600/30 active:scale-95 transition-all inline-flex items-center justify-center gap-2">
+<i class="fa-brands fa-whatsapp text-base"></i> Get a Website Like This
+</a>
+</div>
+</div>
+
 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-center sm:text-left">
 <h2 class="text-xs font-bold tracking-widest text-cyan-400 uppercase flex items-center justify-center sm:justify-start gap-2">
 <i class="fa-solid fa-shield-halved"></i> Core IT Services
@@ -297,23 +529,7 @@ KS TECH LLC manages, supports and secures IT for schools, clinics and offices ac
 <i class="fa-solid fa-layer-group"></i> Also Available
 </h2>
 </div>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-5">
-<div class="glass-card interactive-card rounded-xl sm:rounded-2xl p-4 sm:p-6 transition-all duration-300 flex flex-col gap-3 group reveal ">
-<div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-lg sm:text-xl group-hover:scale-110 transition-transform duration-300 shadow-md">
-<i class="fa-solid fa-code"></i>
-</div>
-<h3 class="font-bold text-slate-100 text-sm sm:text-base group-hover:text-cyan-400 transition-colors">Websites & Business Systems</h3>
-<div class="flex flex-wrap gap-1.5 mb-1">
-<span class="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">Next.js</span>
-<span class="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">Python</span>
-<span class="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">REST APIs</span>
-</div>
-<ul class="text-xs sm:text-sm text-slate-300 space-y-2">
-<li class="flex items-start gap-2"><span class="text-cyan-400 mt-0.5">▸</span> E-commerce stores and company websites</li>
-<li class="flex items-start gap-2"><span class="text-cyan-400 mt-0.5">▸</span> Booking systems and admin dashboards</li>
-<li class="flex items-start gap-2"><span class="text-cyan-400 mt-0.5">▸</span> AI automation for routine business tasks</li>
-</ul>
-</div>
+<div class="grid grid-cols-1 gap-3.5 sm:gap-5">
 <div class="glass-card interactive-card rounded-xl sm:rounded-2xl p-4 sm:p-6 transition-all duration-300 flex flex-col gap-3 group reveal ">
 <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-lg sm:text-xl group-hover:scale-110 transition-transform duration-300 shadow-md">
 <i class="fa-solid fa-boxes-stacked"></i>
