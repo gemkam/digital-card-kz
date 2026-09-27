@@ -7,6 +7,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -825,6 +826,215 @@ document.addEventListener("DOMContentLoaded", function() {
   initObserver();
   downloadVCard();
 });
+</script>
+
+<style>
+#lang-toggle{position:fixed;top:12px;right:12px;z-index:60}
+[dir="rtl"] #lang-toggle{right:auto;left:12px}
+html[lang="ar"] body, html[lang="ar"] button, html[lang="ar"] a{font-family:'Tajawal','Plus Jakarta Sans',sans-serif}
+html[lang="ar"] .tracking-widest, html[lang="ar"] .tracking-wider, html[lang="ar"] .tracking-wide, html[lang="ar"] .tracking-tight{letter-spacing:0!important}
+html[lang="ar"] .uppercase{text-transform:none}
+[dir="rtl"] .fa-chevron-right, [dir="rtl"] .fa-arrow-up-right-from-square{transform:scaleX(-1)}
+[dir="rtl"] .text-left{text-align:right}
+@media (min-width:640px){[dir="rtl"] .sm\:text-left{text-align:right}}
+@media (min-width:768px){[dir="rtl"] .md\:text-left{text-align:right}}
+[dir="rtl"] .left-2\.5{left:auto;right:.625rem}
+[dir="rtl"] .ml-2{margin-left:0;margin-right:.5rem}
+[dir="rtl"] .-right-10{right:auto;left:-2.5rem}
+[dir="rtl"] .truncate{direction:ltr;text-align:right}
+</style>
+<button id="lang-toggle" type="button" onclick="toggleLang()" aria-label="Switch language" class="px-4 py-2 rounded-full bg-slate-900/90 border border-cyan-500/40 text-cyan-300 text-xs sm:text-sm font-bold shadow-lg shadow-cyan-900/30 backdrop-blur active:scale-95 transition-all">
+<span id="lang-label">عربي</span>
+</button>
+<script>
+const AR_TEXT = {
+"Founder & Managing Partner": "المؤسس والشريك المدير",
+"Muscat, Sultanate of Oman": "مسقط، سلطنة عُمان",
+"IT Support and Websites": "دعم تقني ومواقع إلكترونية",
+"for Businesses in Muscat": "للشركات في مسقط",
+"17 years as IT Operations Manager at a leading university in Muscat.": "17 سنة مدير عمليات تقنية المعلومات في جامعة رائدة في مسقط.",
+"We speak Arabic, English, Urdu and Hindi": "نتكلم العربي والإنجليزي والأوردو والهندي",
+"Call Now": "اتصل الحين",
+"WhatsApp": "واتساب",
+"Save Contact (vCard)": "احفظ الرقم (vCard)",
+"Book a Free IT Health Check": "احجز فحص تقني مجاني",
+"Online Solutions We've Provided": "حلول إلكترونية نفذناها",
+"Our Services": "خدماتنا",
+"AI Agents: Leads, Quotes, Bookings": "وكلاء الذكاء الاصطناعي: عملاء، عروض أسعار، حجوزات",
+"Download Company Profile (PDF)": "حمّل ملف الشركة (PDF)",
+"Email Us": "راسلنا بالإيميل",
+"Location: Muscat, Oman": "الموقع: مسقط، عُمان",
+"Oman Vision 2040 Aligned Partner": "شريك متوافق مع رؤية عُمان 2040",
+"IT that works, so you can focus on your business": "تقنية تشتغل صح، وأنت ركّز على شغلك",
+"KS TECH LLC manages, supports and secures IT for schools, clinics and offices across Oman. You get the experience of a senior IT manager and a reliable support team, for a fixed monthly fee.": "كي إس تك ش.م.م تدير وتدعم وتحمي أنظمة التقنية للمدارس والعيادات والمكاتب في كل عُمان. تحصل على خبرة مدير تقنية أول وفريق دعم تعتمد عليه، برسوم شهرية ثابتة.",
+"Real projects, live right now. Tap any one to try it.": "مشاريع حقيقية شغالة الحين. اضغط على أي واحد وجرّبه.",
+"Built with Next.js, Supabase and AI": "مبنية بتقنيات Next.js و Supabase والذكاء الاصطناعي",
+"live projects": "مشاريع شغالة",
+"languages: English, Arabic, Urdu": "لغات: الإنجليزي، العربي، الأوردو",
+"markets: Oman and Pakistan": "أسواق: عُمان وباكستان",
+"Tap to open the live site": "اضغط لفتح الموقع",
+"Paying Client, Muscat": "عميل فعلي، مسقط",
+"Booking system and staff dashboard": "نظام حجز ولوحة تحكم للموظفين",
+"Players scan a QR code at the table to book. Staff approve each booking and run live timers, while a public page shows which tables and PS5s are free right now.": "اللاعب يمسح رمز QR على الطاولة ويحجز. الموظفين يوافقون على كل حجز ويشغّلون المؤقت، وصفحة عامة توضح أي طاولات وأجهزة PS5 فاضية الحين.",
+"QR booking": "حجز برمز QR",
+"Live dashboard": "لوحة تحكم مباشرة",
+"English, Arabic, Urdu": "إنجليزي، عربي، أوردو",
+"Open live site": "افتح الموقع",
+"Live Store": "متجر شغال",
+"E-commerce store, Pakistan": "متجر إلكتروني، باكستان",
+"Full online store with cash on delivery, invoices, AI shopping assistant, AI search and separate vendor pages.": "متجر إلكتروني كامل مع الدفع عند الاستلام، فواتير، مساعد تسوق وبحث بالذكاء الاصطناعي، وصفحات خاصة لكل مورّد.",
+"AI assistant": "مساعد ذكي",
+"COD checkout": "الدفع عند الاستلام",
+"Admin panel": "لوحة الإدارة",
+"E-commerce store with AI": "متجر إلكتروني بالذكاء الاصطناعي",
+"Animated store with an AI chat assistant, live product search, Urdu and English, and its own admin dashboard.": "متجر بحركات جذابة مع مساعد محادثة ذكي، بحث فوري عن المنتجات، بالأوردو والإنجليزي، ولوحة إدارة خاصة.",
+"AI chat": "محادثة ذكية",
+"Live search": "بحث فوري",
+"Admin dashboard": "لوحة الإدارة",
+"Shopify store, Pakistan": "متجر شوبيفاي، باكستان",
+"Fashion and lifestyle store on Shopify with a premium custom theme, organised collections and flash sales.": "متجر أزياء ولايف ستايل على شوبيفاي بتصميم مميز، أقسام مرتبة وعروض سريعة.",
+"Shopify": "شوبيفاي",
+"Custom theme": "تصميم خاص",
+"Collections": "أقسام",
+"Live Page": "صفحة شغالة",
+"Brand page for a perfume maker": "صفحة علامة تجارية لمصنع عطور",
+"A dedicated brand page where orders go straight to the manufacturer on WhatsApp, with a printable invoice.": "صفحة خاصة بالعلامة التجارية، الطلبات توصل مباشرة للمصنع على الواتساب، مع فاتورة قابلة للطباعة.",
+"WhatsApp orders": "طلبات واتساب",
+"Invoices": "فواتير",
+"Showcase": "نموذج عرض",
+"Cafe app concept, Karachi": "فكرة تطبيق لمقهى، كراتشي",
+"A mobile app concept for a coffee and gaming cafe: live PS5 and table status, events, and one-tap WhatsApp and directions.": "فكرة تطبيق جوال لمقهى قهوة وألعاب: حالة أجهزة PS5 والطاولات مباشرة، فعاليات، وواتساب واتجاهات بضغطة وحدة.",
+"Mobile app": "تطبيق جوال",
+"Live status": "حالة مباشرة",
+"Events": "فعاليات",
+"Design showcase": "معرض تصاميم",
+"A gallery of website designs for salons, bookshops, car showrooms, fashion labels and more.": "مجموعة تصاميم مواقع لصالونات، مكتبات، معارض سيارات، علامات أزياء وغيرها.",
+"Salons": "صالونات",
+"Retail": "محلات تجزئة",
+"Showrooms": "معارض",
+"Want one for your business?": "تبغى واحد لشغلك؟",
+"Stores, booking systems, dashboards and company websites.": "متاجر، أنظمة حجز، لوحات تحكم ومواقع شركات.",
+"Get a Website Like This": "أبغى موقع مثل هذا",
+"AI Agents for Your Business": "وكلاء ذكاء اصطناعي لشغلك",
+"Stop losing customers who already asked.": "لا تخسر الزباين اللي سألوا من قبل.",
+"Three AI agents on one simple dashboard. Take one, two or all three.": "ثلاثة وكلاء ذكاء اصطناعي في لوحة تحكم وحدة سهلة. خذ واحد، اثنين أو الثلاثة.",
+"New customers": "عملاء جدد",
+"Lead Generation Agent": "وكيل جلب العملاء",
+"Finds new businesses to sell to": "يلقى لك شركات جديدة تبيع لها",
+"We find companies in Muscat that need what you sell, using public information such as Google Maps and reviews, and write the first message for you.": "نلقى لك شركات في مسقط تحتاج اللي تبيعه، من المعلومات العامة مثل خرائط جوجل والتقييمات، ونكتب لك أول رسالة.",
+"Fresh list of target companies every week": "قائمة جديدة بالشركات المستهدفة كل أسبوع",
+"A personal first message drafted for each one": "رسالة أولى خاصة لكل شركة",
+"Every reply, meeting and win tracked in your dashboard": "كل رد واجتماع وصفقة مسجلة في لوحة التحكم",
+"Best for": "مناسب لـ",
+"Facility management": "إدارة المرافق",
+"Training institutes": "معاهد التدريب",
+"Signage and printing": "اللوحات والطباعة",
+"HVAC and pest control": "التكييف ومكافحة الحشرات",
+"Warm enquiries": "استفسارات سابقة",
+"Quote Follow-up Agent": "وكيل متابعة عروض الأسعار",
+"Wins back quotes that went quiet": "يرجّع لك عروض الأسعار اللي ما رد عليها أحد",
+"Out of every 10 people who ask you for a price, how many do you follow up? Our agent follows up all 10, and you only talk to the serious ones.": "من كل 10 أشخاص يسألونك عن السعر، كم واحد تتابعه؟ وكيلنا يتابع العشرة كلهم، وأنت تكلم الجادين بس.",
+"Flags quotes with no reply for 3 days or more": "ينبهك على عروض الأسعار اللي ما عليها رد 3 أيام أو أكثر",
+"Drafts a polite follow-up for each one": "يجهز رسالة متابعة مؤدبة لكل واحد",
+"Separates serious buyers from window shoppers": "يفرّق بين المشتري الجاد واللي يسأل وبس",
+"Contractors and fit-out": "المقاولات والتشطيبات",
+"Signage and CCTV": "اللوحات وكاميرات المراقبة",
+"Furniture and interiors": "الأثاث والديكور",
+"Events and catering": "الفعاليات والضيافة",
+"Ready to book": "جاهز للحجز",
+"Booking Agent": "وكيل الحجوزات",
+"Turns enquiries into appointments": "يحوّل الاستفسارات إلى مواعيد",
+"When someone asks about an appointment or a course but does not book, the agent follows up and offers them two free time slots.": "لما أحد يسأل عن موعد أو دورة وما يحجز، الوكيل يتابعه ويعرض عليه موعدين فاضيين.",
+"Tracks everyone who asked but did not book": "يتابع كل من سأل وما حجز",
+"Offers two available times in one message": "يعرض موعدين متاحين في رسالة وحدة",
+"Sent from your own WhatsApp number": "تنرسل من رقم الواتساب حقك",
+"Clinics": "العيادات",
+"Training centres": "مراكز التدريب",
+"Gyms and garages": "النوادي الرياضية والكراجات",
+"Restaurants": "المطاعم",
+"You approve every message.": "أنت توافق على كل رسالة.",
+"Nothing is sent without your OK.": "ما ينرسل شي بدون موافقتك.",
+"Your data stays yours.": "بياناتك ملكك.",
+"PDPL-aligned, handed back and deleted when the contract ends.": "متوافق مع قانون حماية البيانات الشخصية، نسلمها لك ونحذفها عند نهاية العقد.",
+"Live dashboard.": "لوحة تحكم مباشرة.",
+"See every lead, follow-up and booking in one place.": "شوف كل عميل ومتابعة وحجز في مكان واحد.",
+"See it working in 3 minutes.": "شوفه يشتغل في 3 دقائق.",
+"We will show you a live demo for your type of business.": "نعرض لك تجربة مباشرة تناسب نوع شغلك.",
+"Book a Free Demo": "احجز عرض تجريبي مجاني",
+"Also available: AI customer assistant for your website, already running inside the stores above.": "متوفر كمان: مساعد ذكي لزباين موقعك، شغال في المتاجر اللي فوق.",
+"Core IT Services": "خدمات تقنية المعلومات الأساسية",
+"Outsourced IT Manager": "مدير تقنية معلومات خارجي",
+"A senior IT head for your business, without the full-time salary.": "مسؤول تقنية أول لشغلك، بدون راتب دوام كامل.",
+"Regular on-site days each week or month": "أيام زيارة ثابتة كل أسبوع أو شهر",
+"IT planning, budgets and vendor management": "تخطيط التقنية والميزانيات وإدارة الموردين",
+"Policies, backups and security oversight": "السياسات والنسخ الاحتياطي والإشراف الأمني",
+"IT Support Contracts (AMC)": "عقود الدعم الفني (صيانة سنوية)",
+"Fixed monthly or yearly support, so problems get fixed fast.": "دعم شهري أو سنوي ثابت، عشان المشاكل تنحل بسرعة.",
+"Helpdesk support, remote and on-site": "دعم فني عن بُعد وفي الموقع",
+"Preventive maintenance visits": "زيارات صيانة وقائية",
+"Agreed response times (SLA)": "أوقات استجابة متفق عليها (SLA)",
+"Flexible terms: 6 months, 1 year, 3 years": "مدد مرنة: 6 شهور، سنة، 3 سنوات",
+"Free IT Health Check": "فحص تقني مجاني",
+"We inspect your setup and tell you what needs attention. No obligation.": "نفحص أنظمتك ونقول لك وش يحتاج اهتمام. بدون أي التزام.",
+"Network, Wi-Fi and internet review": "مراجعة الشبكة والواي فاي والإنترنت",
+"Servers, backups and security check": "فحص السيرفرات والنسخ الاحتياطي والأمان",
+"Short written report with clear priorities": "تقرير مكتوب مختصر بأولويات واضحة",
+"Networking & Infrastructure": "الشبكات والبنية التحتية",
+"Design, installation and upgrades for offices, schools and clinics.": "تصميم وتركيب وتطوير للمكاتب والمدارس والعيادات.",
+"Routers, switches, firewalls and Wi-Fi": "راوترات، سويتشات، جدران حماية وواي فاي",
+"Server rooms, racks and UPS power": "غرف السيرفرات والرفوف وأجهزة UPS",
+"Complete office, school and cafe network packages": "باقات شبكات متكاملة للمكاتب والمدارس والمقاهي",
+"Also Available": "متوفر كمان",
+"Hardware Supply": "توريد الأجهزة",
+"We source the equipment your setup needs, at competitive prices.": "نوفر لك الأجهزة اللي تحتاجها بأسعار منافسة.",
+"Laptops, desktops and workstations": "لابتوبات وكمبيوترات مكتبية ومحطات عمل",
+"Network equipment, UPS and server racks": "أجهزة شبكات و UPS ورفوف سيرفرات",
+"Printers, copiers, screens and projectors": "طابعات، آلات تصوير، شاشات وبروجكترات",
+"Start With a Free IT Health Check": "ابدأ بفحص تقني مجاني",
+"Tell us about your business and we will arrange a visit. You can also email us at": "كلمنا عن شغلك ونرتب لك زيارة. تقدر كمان تراسلنا على",
+"or phone/WhatsApp at": "أو تتصل أو ترسل واتساب على",
+"Book on WhatsApp": "احجز على الواتساب",
+"© 2026 KS TECH LLC. All rights reserved.": "© 2026 كي إس تك ش.م.م. جميع الحقوق محفوظة.",
+"Kamran and Suresh Technology LLC": "كامران وسوريش للتكنولوجيا ش.م.م"
+};
+const AR_KEYS = Object.keys(AR_TEXT);
+const _i18nNodes = [];
+function _collectI18n(){
+  if (_i18nNodes.length) return;
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+    acceptNode(n){
+      const p = n.parentElement;
+      if (!p || p.closest('script,style')) return NodeFilter.FILTER_REJECT;
+      const key = n.nodeValue.replace(/\s+/g,' ').trim();
+      return AR_TEXT[key] ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+    }
+  });
+  let n;
+  while ((n = walker.nextNode())) {
+    const key = n.nodeValue.replace(/\s+/g,' ').trim();
+    const lead = n.nodeValue.match(/^\s*/)[0], trail = n.nodeValue.match(/\s*$/)[0];
+    _i18nNodes.push({ node: n, en: n.nodeValue, ar: lead + AR_TEXT[key] + trail });
+  }
+}
+function setLang(lang){
+  _collectI18n();
+  const ar = lang === 'ar';
+  _i18nNodes.forEach(o => { o.node.nodeValue = ar ? o.ar : o.en; });
+  document.documentElement.lang = ar ? 'ar' : 'en';
+  document.documentElement.dir = ar ? 'rtl' : 'ltr';
+  document.getElementById('lang-label').textContent = ar ? 'English' : 'عربي';
+  try { localStorage.setItem('kz-lang', lang); } catch (e) {}
+}
+function toggleLang(){ setLang(document.documentElement.lang === 'ar' ? 'en' : 'ar'); }
+(function(){
+  let lang = 'en';
+  try {
+    const q = new URLSearchParams(location.search).get('lang');
+    lang = q === 'ar' || q === 'en' ? q : (localStorage.getItem('kz-lang') || 'en');
+  } catch (e) {}
+  const start = () => { if (lang === 'ar') setLang('ar'); };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+})();
 </script>
 </body>
 </html>
